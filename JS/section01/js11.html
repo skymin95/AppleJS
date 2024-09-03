@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>변수문법과 Dark mode 버튼만들기</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <style>
+    .dark{
+      background: #222;
+      color: #fff;
+    }
+  </style>
+</head>
+<body id="body">
+  <span class="badge bg-dark">Dark 🔄</span>
+
+  <script>
+
+    //홀수 클릭시 dark
+    //짝수 클릭시 light
+
+    let count = 0;
+    
+    $('.badge').on('click', function(){
+      count += 1;
+
+    if(count % 2 == 1){
+      //console.log('홀수');
+      $('.badge').html('Light 🔄');
+      $('#body').addClass('dark');
+    } else{
+      //console.log('짝수');
+      $('.badge').html('Dark 🔄');
+      $('#body').removeClass('dark');
+    }
+  });
+
+  </script>
+</body>
+</html>
