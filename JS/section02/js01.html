@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>변수, 사칙연산 실력향상 과제</title>
+</head>
+<body>
+  <ul>
+    <li>
+      <h3>Q1. 변수를 만들어봅시다</h3>
+      <p>
+        내 나이와 출신지역을 자바스크립트 변수에 저장해봅시다. <br> 
+        나이는 맨날 변하니 재할당가능한 변수, <br>
+        출신지역은 바뀌지 않으니 재할당불가능한 변수에 저장해보십시오. <br>
+      </p>
+    </li>
+
+    <li>
+      <h3>
+        Q2. 왜 이 변수는 동작하지 않죠? </h3>
+    </li>
+
+    <li>
+      <h3>Q3. 이자율 계산하기</h3>
+      <p>
+        철수는 은행에 예금을 하러 갔는데 예금 금액에 따라 이율이 달라지는 것을 보고 크게 당황했습니다. <br>
+        첫 예금액이 5만원 미만이면 이율이 연 15퍼센트,<br>
+        첫 예금액이 5만원 이상이면 이율이 연 20퍼센트라고 합니다.<br>
+        그래서 민준이는<br>
+        (1) 변수에 예금액을 넣으면<br>
+        (2) 2년 후의 총 예금액을 자동으로 콘솔창에 출력해주는 기능을 자바스크립트로 만들려고하는데<br>
+        어떻게 코드를 짜면 될까요? 
+      </p>
+    </li>
+
+    <li>
+      <h3>Q4. 커피 리필을 이상하게 해주는 곳이 있습니다. 최대한 마실 수 있는 커피양을 계산해봅시다.</h3>
+      <p>
+        방금 마신 커피의 3분의 2만큼 총 2번 리필해주는 카페가 있습니다.
+        예를 들면 처음 커피를 90ml 주문하면 첫 리필은 60ml를 해주며, 그 다음 리필은 40ml를 해주는 카페입니다.
+        그럼 처음 주문한 커피 양에 따라서 최대한 마실 수 있는 커피를 콘솔창에 계산해주는 코드를 작성해봅시다. 
+      </p>
+    </li>
+
+    <li>
+      <h3>Q5. 간단한 퀴즈 UI를 만들어봅시다.</h3>
+      <p>태조 이성계가 태어난 년도는?</p><!-- 1335년 -->>
+      <input type="text" id="answer">
+      <button id="send-answer">제출</button>
+
+
+    </li>
+  </ul>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+
+    //1번
+    let age = 30;
+    const area = 'home'; 
+    
+    //2번
+    var name = 'park';
+    var id = 0;
+    
+    function showName(){
+      var name = 'kim';
+      var id = 1;
+      console.log(name);
+    }
+
+    showName();// kim
+    console.log(id); //0
+    
+    //3번
+    var 예금액 = 60000;
+    var 미래예금액 = 0;
+
+    if ( 예금액 >= 50000 ){
+      미래예금액 = 예금액 * 1.2 * 1.2 ;
+    } else {
+      미래예금액 = 예금액 * 1.15 * 1.15 ;
+    }
+
+    console.log(미래예금액) 
+
+    //4번 문제
+    var first = 360;
+    let second = (first*2/3);
+    let third = (second*2/3);
+
+    let total = first+second+third;
+
+    console.log(total);    
+
+    //정답
+    // var first = 360;
+    // var total = 0;
+
+    // total = first + first * 2 / 3 + first * 2 / 3 * 2 / 3
+
+    // console.log(total)
+
+    //5번문제
+    /*
+      1. 유저가 답을 맞추면 alert('성공');
+      2. 유저가 답을 3번 찍어서 못맞추면 alert('멍청아') 를 띄워봅시다.
+      (위 문제의 답은 1335입니다)
+    */
+    
+    //var count = 0; 0부터 시작하면 안됨
+
+    var count = 1;
+
+    $('#send-answer').on('click', function(){
+      let answer = document.getElementById('answer').value;
+     //console.log(answer);
+    
+     //var count = 0; 클릭할떄마다 초기화 돼서 전역으로 보냄 
+     //count += 1; 성공했을떄도 카운트 올라가서 if문 안에 넣음
+      console.log(count);
+
+
+      if(answer == 1335){
+        //alert('성공');
+        console.log('성공');
+      }else if(count <= 3){
+        count += 1;
+        //alert('실패');
+        console.log('실패');
+      } else{
+        console.log('멍충멍충');
+      }
+
+    });
+
+
+
+  </script>
+</body>
+</html>

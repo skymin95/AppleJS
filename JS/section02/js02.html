@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>setTimeout 타이머주는 법</title>
+</head>
+<style>
+  .alert-danger{
+    background: rgb(246, 67, 67);
+    color: #fff;
+    padding: 20px;
+  }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<body>
+  <h2>setTimeout 타이머주는 법</h2>
+
+  <div class="alert alert-danger">
+    <span class="timeNum">5</span>초 이내 구매시 사은품 증정!
+  </div>
+
+  <script>
+    //setTimeout(function(){}, 1000) 시간후에 실행1번 
+    setTimeout(function(){
+      //$('.alert').hide();
+    }, 3000)
+
+    //콜백함수에 함수 만들어 놓고 선언가능
+    setTimeout(setTime, 5000)
+    function setTime(){
+      //console.log('하이');
+    }
+
+    //setInterval(function(){}, 1000) 시간마다 실행
+    setInterval(function(){
+      //console.log('안녕')      
+    }, 1000)
+
+
+
+
+    //숙제 5초이내 구매시 사은품 증정! 5,4,3,2,1, 하면서 박스 삭제
+    //처음 생각한 방법
+    /*
+    let countDown = document.getElementsByClassName("timeNum");
+    console.log(countDown);
+    */
+  
+    let countDown = document.getElementsByClassName("timeNum")[0];
+    let countDownText = countDown.innerText;
+    //console.log(countDownText); //5출력
+
+    setInterval(function(){
+      countDownText = countDownText-1;
+      if(countDownText >= 0){
+        //$('.timeNum').html(countDownText);
+        document.querySelector('.timeNum').innerHTML = countDownText;
+      }
+      if(countDownText == 0){
+        $('.alert-danger').hide();
+      }
+      
+    }, 1000);
+
+
+    //다른방법
+    /*
+    let num = 5;
+    
+    //console.log(num);
+
+    setInterval(function(){
+      //console.log('하이')
+      num = num-1;
+      if(num >= 0){
+        $('.timeNum').html(num);
+      }
+    }, 1000)
+    */
+
+  </script>
+</body>
+</html>

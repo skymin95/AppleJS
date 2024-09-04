@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스크롤 이벤트로 만드는 재밌는 기능들</title>
+  <style>
+    .navbar{
+      position: fixed;
+      width: 100%;
+      z-index: 5;
+    }
+    .navbar-brand{
+      font-size: 30px;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+  <nav class="navbar navbar-light bg-light">
+    <div>
+      <span class="navbar-brand">JSShop</span>
+      <span class="ms-auto mx-3 badge bg-dark">dark 👌</span>
+      <button class="navbar-toggle" type="button">
+        <span class="navbar-toggle-icon"></span>
+      </button>
+    </div>
+  </nav>
+
+  <div style="height: 1000px;"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    
+  <div class="lorem" style="width: 200px; height: 100px; overflow-y: scroll">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptas voluptatum minus praesentium fugit debitis at, laborum ipsa itaque placeat sit, excepturi eius. Nostrum perspiciatis, eligendi quae consectetur praesentium exercitationem.
+  </div> 
+  </div>
+  <script>
+    window.addEventListener('scroll', function(){
+      console.log(window.scrollY);
+      //window.scrollTo(0, 100);//강제로
+    });
+
+    $(window).on('scroll', function(){
+      //$(window).scrollTop(100);
+    })
+
+    $('.lorem').on('scroll', function(){
+      var 스크롤양 = document.querySelector('.lorem').scrollTop;
+      var 실제높이 = document.querySelector('.lorem').scrollHeight;
+      
+      console.log(스크롤양, 실제높이);
+
+    });
+  </script>
+</body>
+</html>
